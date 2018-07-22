@@ -1,0 +1,18 @@
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <!-- repeat : heroes is from the class, hero is the current hero object for each iteration --> 
+  <!-- also bind the click event handler -->
+  <!-- also toggle the css when selected -->
+  <li *ngFor="let hero of heroes">
+    <!-- used to like this with click event binding before routing
+    (click)="onSelect(hero)"
+	[class.selected]="hero === selectedHero"> -->
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+
+<!-- used to show here before moving to a dedicated page with routing -->
+<!-- pass the seleted hero to the hero detail component -->
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->

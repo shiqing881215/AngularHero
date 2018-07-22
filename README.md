@@ -1,3 +1,8 @@
+This is an Angular Hero Project practice
+Mostly I follow the instruction here https://angular.io/tutorial
+This serves as am amgular reference project for my personal use in the future. 
+
+
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.

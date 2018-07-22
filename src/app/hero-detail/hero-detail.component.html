@@ -1,0 +1,16 @@
+<!-- only show this section when something is selected -->
+<div *ngIf="hero">
+  <!-- uppercase is a piple -->
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div><span>name: </span>{{hero.name}}</div>
+
+  <div>
+    <label>
+      <!-- ngModel is two way binding -->
+      <input [(ngModel)]="hero.name" placeholder="name">
+    </label>
+  </div>
+</div>
+
+<button (click)="goBack()">go back</button>
