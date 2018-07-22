@@ -1,3 +1,4 @@
+// This is used before introducing the in-memory http module
 import {hero} from './hero';
 
 export const HEROES : Hero[] = [
@@ -6,5 +7,5 @@ export const HEROES : Hero[] = [
   {id : 3, name : 'Captain America'},
   {id : 4, name : 'Black Widow'},
   {id : 5, name : 'Thor'},
-  {id : 6, name : 'Scarlet Witch'},
+  {id : 6, name : 'Scarlet Witch'}
 ];
