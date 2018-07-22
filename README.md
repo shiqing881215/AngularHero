@@ -1,6 +1,7 @@
-This is an Angular Hero Project practice
-Mostly I follow the instruction here https://angular.io/tutorial
-This serves as am amgular reference project for my personal use in the future. 
+This is an Angular Hero Project practice <br/>
+Mostly I follow the instruction here https://angular.io/tutorial  <br/>
+This serves as am amgular reference project for my personal use in the future.  <br/>
+Focus on the src/app folder where the most work is done. 
 
 
 # MyApp
