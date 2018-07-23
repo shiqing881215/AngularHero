@@ -7,6 +7,11 @@ import { MessageService } from './message.service';   // import MessageService
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';  // the in-memory http request
 
+// constant defined outside class
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,6 +59,37 @@ export class HeroService {
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`HTTP REQUEST : fetched hero id=${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
+  }
+
+  // 3 params for put : url / object to update / options
+  // note since we use the in-memory stimulate service
+  // if you don't clear the memory, you can see these update
+  // but if you refresh the browser, these change will be gone
+  updateHero(hero : Hero) : Observable<any> {
+    return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
+      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
+  }
+
+  /** POST: add a new hero to the server */
+  // The return Observable<Hero> should have the id
+  addHero (hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
+      tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
+      catchError(this.handleError<Hero>('addHero'))
+    );
+  }
+
+  /** DELETE: delete the hero from the server */
+  deleteHero (hero: Hero | number): Observable<Hero> {
+    const id = typeof hero === 'number' ? hero : hero.id;
+    const url = `${this.heroesUrl}/${id}`;
+
+    return this.http.delete<Hero>(url, httpOptions).pipe(
+      tap(_ => this.log(`deleted hero id=${id}`)),
+      catchError(this.handleError<Hero>('deleteHero'))
     );
   }
 

@@ -35,4 +35,21 @@ export class HeroesComponent implements OnInit {
     // subscribe passes the emitted array to the callback
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
+
+  // after HeroService add the new hero, in the callback put to current
+  // heroes list to display
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+
+  delete(hero: Hero): void {
+    // update the heroes list to display
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero).subscribe();
+  }
 }
