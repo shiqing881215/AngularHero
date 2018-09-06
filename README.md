@@ -3,7 +3,7 @@ Mostly I follow the instruction here https://angular.io/tutorial  <br/>
 This serves as am amgular reference project for my personal use in the future.  <br/>
 Focus on the src/app folder where the most work is done. 
 
-To run this, cd into my-app directory and run "ng serve --open"
+To run this, clone the porjec and at this root folder run "ng serve --open"
 
 
 # MyApp
